@@ -58,6 +58,7 @@ client.once(Events.ClientReady, c => {
 	console.log(`Fired up & ready! ${c.user.tag}`);
 });
 
+// This is for reading event files
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
