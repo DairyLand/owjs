@@ -12,7 +12,8 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "imageapi.js": "^1.7.0"
+    "imageapi.js": "^1.7.0",
+    "reddit-fetch": "^1.5.1"
   },
   "devDependencies": {
     "eslint": "^8.34.0"

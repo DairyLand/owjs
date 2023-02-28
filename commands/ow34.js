@@ -1,28 +1,24 @@
 const Discord = require('discord.js');
-const api = require('imageapi.js');
-const client = new Discord.Client();
+const client = new Discord.Client
+const redditFetch = require('reddit-fetch');
 
 client.on('ready', () => {
-	console.log('vrooom vroom');
+  console.log('zooooooom!');
 });
 
-client.on('message', async msg => {
-	if (msg.content === '$34') {
-		const subreddits = [
-			'Overwatch_Porn',
-			'NSFW_Mercy',
-		];
-		const subreddit = subreddits[Math.floor(Math.random() * (subreddits.length))];
+client.on('message', message => {
+  if (message.content === 'booba') {
+      redditFetch({
+  
+      subreddit: 'Overwatch_Porn',
+      sort: 'hot',
+      allowNSFW: true,
+      allowModPost: true,
+      allowCrossPost: true,
+      allowVideo: true
 
-		const img = await api(subreddit);
-
-		const Embed = new Discord.MessageEmbed()
-			.setTitle('wow booba')
-			.setURL('https://www.reddit.com/r/Overwatch_Porn')
-			.setColor('random')
-			.setImage(img);
-		msg.channel.send(Embed);
-	}
+}).then(post => {
+    message.channel.send(`${message.author}, enjoy booba! ${post.url}`);
 });
 
-client.login('');
+client.login('')
